@@ -1,0 +1,132 @@
+    {% extends "layout.html" %}   
+
+    {% block styles %}
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/partials/modal.css">
+    <link rel="stylesheet" href="styles/register.css">
+    {% endblock styles %}
+
+    {% block title %}
+        <title>Registre-se</title>
+    {% endblock title %}
+    
+    {% block header %}
+    <div id="area-cabecalho">
+        <div id="area-logo">
+           <a href="/"> <img id="if-logo" src="imagens/logo.png"> </a>
+        </div>
+    </div>
+    <div id="area-menu">
+        <div class="botao-menu">
+            <img id="if" src="imagens/if.webp"> <a href="/">Home</a>
+        </div>
+
+        <div class="botao-menu">
+            <img src="imagens/mega fone.png"> <a href="">Extra Aula</a>
+        </div>
+
+        <div class="botao-menu">
+            <img src="imagens/calendar.png"> <a href="">Calendário</a>
+        </div>
+
+        <div class="botao-menu">
+            <img id="boletim" src="imagens/boletim.png"> <a href="">Boletim</a>
+        </div>
+    </div>
+    {% endblock header %}
+
+    {% block principal %}
+
+    <div id="area-principal">
+        <form method="POST" enctype="multipart/form-data">
+            <div id="area-register">
+
+                <div>
+                    <label for="login">Usuário</label>
+                    <input type="text" name="login">
+
+                    <label for="email">E-mail</label>
+                    <input type="email" name="email" id="email">
+
+                    <label for="password">Senha</label>
+                    <input type="password" name="password" id="senha">
+
+                    <label for="confirme">Confirme sua senha:</label>
+                    <input type="password" name="confirme" id="confirme">
+                </div>
+
+                <div id="foto-register">
+                    <span>Adicionar foto de perfil</span><br>
+                    <label for="image">
+                        <img id="image-user" src="imagens/registerfoto.png">
+                    </label>
+                    <input type="file" id="image" name="image" onchange="loadFile(event)">
+                </div>
+
+                <div>
+                    <label for="name">Nome Completo</label>
+                    <input type="text" name="name">
+
+                    <label for="ra">Número de R.A.</label>
+                    <input type="text" name="ra">
+
+                    <label for="class">Selecione a sua turma:</label>
+                    <select name="classroom_id" id="class">
+                        <option selected disabled id="fake">Selecione a sua turma</option>
+                        {% for classroom in regs %}
+                              <option value="{{ classroom.classroom_id }}"> {{ classroom.classroom_name }} </option>
+                        {% endfor %}
+                    </select>
+
+                    <div id="date-button">
+                        <div>
+                            <label for="birthday">Data de Nascimento:</label><br>
+                            <input type="date" id="date" name="birthday"><br>
+                        </div>
+                        <button type="submit" id="submit" onclick="saved()">Registrar</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+
+        {% if register %}
+      
+        <div id="modal" class="hide">
+            <div id="content">
+                <img src="imagens/check.png">
+                <h1>Registro concluído com sucesso!!</h1>
+            </div>
+        </div>    
+      
+        {% endif %}
+        
+    </div>
+    
+
+    {% endblock principal %}
+
+    {% block scripts %}
+
+        <script>
+            function loadFile(event){
+                var reader = new FileReader();
+                reader.onload = ()=>{
+                    var image = document.getElementById('image-user');
+                    image.src = reader.result;
+                };
+                reader.readAsDataURL(event.target.files[0]);
+            };
+
+            function saved(){
+                var modal = document.querySelector('#modal');
+                modal.classList.remove('hide');
+
+                setTimeout(()=>{
+                    window.location = '/';
+                }, 1500);
+            };
+
+        </script>
+
+{% endblock scripts %}

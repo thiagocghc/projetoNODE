@@ -1,0 +1,91 @@
+    {% extends "layout.html" %}
+
+    {% block title %}
+        <title>Login - IF Virtual Classroom</title>
+    {% endblock title %}
+
+    {% block styles %}
+        <link rel="stylesheet" href="styles/header.css">
+        <link rel="stylesheet" href="styles/main.css">
+    {% endblock styles %}
+
+    {% block header %}
+    
+    <div id="area-cabecalho">
+        <div id="area-logo">
+            <a href="/"> <img id="if-logo" src="imagens/logo.png"> </a>
+        </div>
+    </div>
+    <div id="area-menu">
+        <div class="botao-menu">
+            <img id="if" src="imagens/if.webp"> <a href="/">Home</a>
+        </div>
+
+        <div class="botao-menu">
+            <img src="imagens/mega fone.png"> <a href="">Extra Aula</a>
+        </div>
+
+        <div class="botao-menu">
+            <img src="imagens/calendar.png"> <a href="">Calendário</a>
+        </div>
+
+        <div class="botao-menu">
+            <img id="boletim" src="imagens/boletim.png"> <a href="">Boletim</a>
+        </div>
+    </div>
+    {% endblock header %}
+
+    {% block principal %}
+
+    <div id="area-principal">
+        <div id="area-login">
+            <div id="form-login">
+                <form action="/" method="POST">
+                        
+                <label for="login">Usuário</label>
+                <input type="text" name="login">
+                <label for="password">Senha</label>
+                <input type="password" name="password">
+
+                <div class="grid-button">
+                    <div class="botao">
+                        <button type="submit">Entrar</button>
+                    </div>
+
+                    <div class="log">
+                        <a href=""><img src="imagens/icon-facebook.png"><span>Login com o Facebook</span></a><br>
+                        <a href=""><img src="imagens/icon-google.png"><span>Login com o Facebook</span></a>
+                    </div>
+                </div>
+            </form>
+            </div>
+
+                <div class="baixo">
+                    <p class="espaco">Não possui uma conta? <a href="/register">Registre-se aqui</a><br>
+                    <a>Esqueci o usuário</a><br>
+                    <a>Esqueci a senha</a>
+                    </p>
+                </div>
+
+        </div>
+
+        <div id="recent-post">
+            <p>Atividades postadas recentemente</p>
+            <div id="main-recent">
+                <div id="container-recent">
+                   
+                   {% for homework in x %}
+                    <div class="recent">
+                        <div class="recent-title">{{ homework.classroom_name }} - {{ homework.subject_name }} </div>
+                        <div class="recent-description"> {{ homework.description }} </div>
+                    </div>     
+                   {% endfor %}
+                   
+                                   
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    {% endblock principal %}

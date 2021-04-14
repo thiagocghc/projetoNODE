@@ -1,0 +1,91 @@
+    {% extends "layout.html" %}
+    
+    {% block styles %}
+        <link rel="stylesheet" href="styles/notes.css">
+        <link rel="stylesheet" href="styles/painel.css">
+    {% endblock styles %}
+
+    {% block title %}
+    <title>IF _ CLASSROOM</title>
+    {% endblock title %}
+
+    {% block header %}
+    <div id="header">
+        <div class="head">
+            <div id="logo">
+                <a href="/"> <img id="if-logo" src="imagens/logo.png"> </a>
+            </div>
+
+            <div id="menu">
+                <a href=""> <img src="imagens/if.webp" alt="/"> Home</a>
+                <a href=""> <img src="imagens/mega fone.png" alt=""> Extra Aula</a>
+                <a href=""> <img src="imagens/calendar.png" alt=""> Calendário</a>
+                <a href=""> <img src="imagens/boletim.png" alt=""> Boletim</a>
+            </div>
+
+            <div id="perfil">
+                <span id="nome" class="branco">  {{user.user_name}}  </span> <span class="branco"> | </span> <span class="branco">  {{user.user_classroom}}  </span>
+                <img src="/uploads/{{user.user_image}}" alt="">
+            </div>
+        </div>
+    </div>
+    {% endblock header %}
+
+    {% block principal %}
+    <div id="principal">
+        <div id="botao">
+            <a href="/tarefas"> <button>Tarefas</button></a>
+            <a href="/videos"> <button >Vídeos</button> </a>
+            <a href="/materias"> <button >Matérias</button> </a>
+            <a href="/conceitos"> <button class="roxo">Conteúdos</button> </a>
+        </div>
+
+        <div id="quadrado">
+            <form class="select">
+                <p>Classificar por:</p>
+                <select name="filter" id="">
+                    {% for subject in subjects %}
+                         <option value="{{subject.subject_id}}"> {{subject.subject_name}} </option>
+                    {% endfor %}
+                </select>
+
+                <button type="submit" id="filter">Filtrar</button>
+            </form>
+
+            <div class="scroll">
+                <div id="pdf-0" class="pdf">
+                    <h2 id="bloco-0">Bloco I</h2>
+                    <a href=""><img src="imagens/icon-pdf.png"></a>
+                </div>
+
+                <div id="pdf-0" class="pdf">
+                    <h2 id="bloco-0">Bloco I</h2>
+                    <a href=""><img src="imagens/icon-pdf.png"></a>
+                </div>
+
+                <div id="pdf-0" class="pdf">
+                    <h2 id="bloco-0">Bloco I</h2>
+                    <a href=""><img src="imagens/icon-pdf.png"></a>
+                </div>
+
+                <div id="pdf-0" class="pdf">
+                    <h2 id="bloco-0">Bloco I</h2>
+                    <a href=""><img src="imagens/icon-pdf.png"></a>
+                </div>
+
+                <div id="pdf-0" class="pdf">
+                    <h2 id="bloco-0">Bloco I</h2>
+                    <a href=""><img src="imagens/icon-pdf.png"></a>
+                </div>
+
+                <div id="pdf-0" class="pdf">
+                    <h2 id="bloco-0">Bloco I</h2>
+                    <a href=""><img src="imagens/icon-pdf.png"></a>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    {% endblock principal %}

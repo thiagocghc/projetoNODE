@@ -1,0 +1,133 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: #EBEBEB;
+    font-family: "Nunito";
+}
+
+#area-principal{
+    width: 1366px;
+    height: 400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+#area-login{
+    width: 417px;
+    background-color: white;
+    margin-left: 120px;
+    border-radius: 5px;
+    padding:20px;
+    height: 75%;
+}
+
+#recent-post{
+    width: 600px;
+    background-color: white;
+    border-radius: 5px;
+    padding:20px;
+    height: 75%;
+    margin-right: 120px;
+}
+
+input[type=text], input[type=password]{
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    display: inline-block;
+    border-radius: 5px;
+    border:0;
+    box-sizing: border-box;
+    background-color: #EBEBEB;
+    font-size: 1.1em;   
+}
+
+button{
+    background-color: #04D361;
+    color: white;
+    padding: 16px 0;
+    margin:8px 0;
+    border:none;
+    border-radius: 5px;
+    width: 190px;
+    font-size: 1.8em;
+}
+
+#area-login button:hover{
+    opacity: 0.8;
+}
+
+#area-login img{
+    width: 20px;
+    height: 20px;
+}
+
+.grid-button{
+    display: inline-block;
+    width: 100%;
+}
+
+.botao{
+    float: left;
+}
+
+.log{
+    float: right;
+    width: 190px;
+    padding-top: 15px;
+    align-items: center;
+}
+
+#form-login a{
+    font-size: 1em;
+    padding: 0;
+}
+
+.espaco{
+    font-size: 0.8em;
+}
+
+.espaco a{
+    text-decoration: none;
+    color:#3294CB;
+    line-height: 1.5;
+    padding-left: 5px;
+}
+
+/* Recent */
+
+#container-recent{
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto ;
+    grid-template-areas: "first second", "third four";
+}
+
+.recent{
+    width: 260px;
+    padding:10px;
+    margin-bottom: 5px;
+    background-color: #F3f3f3;
+    border-radius: 5px;
+}
+
+.recent-title{
+    text-overflow: ellipsis;
+    overflow:hidden;
+    white-space: nowrap;
+
+}
+
+.recent-description{
+    padding:2px;
+    border-radius: 5px;
+    background-color: white;
+    height: 95px;
+    text-overflow: ellipsis;
+    font-size: 0.8em;
+    overflow: hidden;
+}

@@ -1,0 +1,19 @@
+1 - Chop Suey (arroz e carne com legumes)
+2 - Gyudon (arroz e carne com cebola)
+3 - Katsudon (arroz e costelinha de porco)
+4 - Yakissoba 
+5 - Sobá
+6 - Kara-age Chicken (frango à passarim)
+7 - Kung Pao Chicken (frango com amendoin)
+8 - Yakitori (espeto frango)
+9 - Kushiyaki (espeto carne)
+10 - Yakiniku (carne grelhada)
+11 - Frango Xadrez
+12 - Sweet Chicken (frango agridoce)
+13 - Sweet Pork (porco agridoce)
+14 - Giozá
+15 - Tempura
+
+
+escrita em https://www.japaoemfoco.com/11-comidas-populares-no-japao/
+japones

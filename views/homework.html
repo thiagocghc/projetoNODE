@@ -1,0 +1,85 @@
+    {% extends "layout.html" %}
+
+    {% block styles %}
+    <link rel="stylesheet" href="styles/homework.css">
+    <link rel="stylesheet" href="styles/painel.css">
+    {% endblock styles %}
+
+    {% block title %}
+    <title>IF _ CLASSROOM</title>
+    {% endblock title %}
+
+    {% block header %}
+
+    <div id="header">
+        <div class="head">
+            <div id="logo">
+                <a href="/"> <img id="if-logo" src="imagens/logo.png"> </a>
+            </div>
+
+            <div id="menu">
+                <a href=""> <img src="imagens/if.webp" alt="/"> Home</a>
+                <a href=""> <img src="imagens/mega fone.png" alt=""> Extra Aula</a>
+                <a href=""> <img src="imagens/calendar.png" alt=""> Calendário</a>
+                <a href=""> <img src="imagens/boletim.png" alt=""> Boletim</a>
+            </div>
+
+            <div id="perfil">
+                <span id="nome" class="branco">{{ user.user_name }}</span> <span class="branco"> | </span> <span class="branco"> {{user.user_classroom}}  </span>
+                <img src="/uploads/{{user.user_image}}" alt="">
+            </div>
+        </div>
+    </div>
+
+    {% endblock header %}
+
+    {% block principal %}
+
+    <div id="principal">
+        <div id="botao">
+            <a href="/tarefas"> <button class="roxo">Tarefas</button></a>
+            <a href="/videos"> <button >Vídeos</button> </a>
+            <a href="/materias"> <button >Matérias</button> </a>
+            <a href="/conceitos"> <button >Conteúdos</button> </a>
+        </div>
+
+        <div id="quadrado">
+            <form class="select">
+                <p>Classificar por:</p>
+                <select name="filter" id="">
+                    <option value="concluidas">Concluídas</option>
+                    <option value="mais-antigas">Mais antigas</option>
+                    <option value="menor-tempo">Menor tempo para entrega</option>
+                </select>
+
+                <button type="submit" id="filter">Filtrar</button>
+            </form>
+            <div class="scroll">
+              
+            {% for homework in homeworks %}
+
+                <div class="conteudo">
+                    <div id="content" class="content">
+                        <a class="preto" href="/tarefas/{{homework.homework_id}} ">
+                            <u> <h3 id="homework-title" class="homework-title"> {{homework.subject_name}} - Prof. {{homework.name}}</h3>
+                                <h4 id="homework-desc-0" class="homework-desc"> {{homework.title}} </h4> </u></a>
+                                <div id="homework-quant-0" class="homework-quant">
+                                    03 materiais em anexo.
+                                </div>
+                    </div>
+
+                    <div id="date" class="date">
+                        <b><p id="send-date-0">Data de envio: {{homework.created_at}}</p>
+                        <p id="delivery-date-0">Data de entrega: {{homework.delivery_date}}</p>
+                        Situação: <span id="situation-0" class="situation"> Não entregues</span>
+                        </b>
+                    </div>
+                </div>
+
+                {% endfor %}
+
+                
+            </div>
+        </div>
+    </div>
+    {% endblock principal %}
